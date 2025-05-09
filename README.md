@@ -118,3 +118,21 @@ but please bear in ming we want to see your best!
 - Document your decissions using PRs or in this very README adding sections to it,
   the same way you would be generating documentation for any other deliverable.
 - It is supposed the service will run in-memory. In case you need any repository, please justify it.
+
+# Explanation
+
+## Efficiency
+
+All data is stored in memory using Dictionary structures:
+
+   - Dictionary<int, Offer> for storing offers by ID.
+
+   - Dictionary<string, Loan> for storing each customer's active loan by phone number.
+   
+Each customer can only have one active loan at a time. This constraint limits the memory footprint, even with a high number of users. 
+When a loan is fully repaid, instead of deleting it, I simply mark it as inactive, which maintains historical tracking while preserving performance.
+
+## Use of repository
+
+I don't include any repository as the service will be running in-memory, but if it were needed to implement persistance, 
+would be easy just adding a repository pattern, wich will lead to a easy replacement of the storage layer and an easier testing
