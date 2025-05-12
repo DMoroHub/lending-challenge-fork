@@ -51,7 +51,7 @@ namespace LendingService.Services
                 Id = new Random().Next(1, 10000),
                 Offer = offer,
                 BalanceLeft = balanceLeft,
-                DueDate = DateTime.UtcNow.AddDays(30),
+                DueDate = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(2)).AddDays(30),
                 IsActive = true
             };
 

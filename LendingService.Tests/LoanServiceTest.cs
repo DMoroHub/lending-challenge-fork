@@ -89,9 +89,9 @@ namespace LendingService.Tests
         {
             _service.AddOrUpdateOffer(new Offer { Id = 4, Balance = 10, Taxes = 0 });
             _service.CreateLoan("aaa", 4);
-            _service.RepayLoan("aaa", 10); // fully repaid, inactive
+            _service.RepayLoan("aaa", 10); 
 
-            var result = _service.RepayLoan("aaa", 5); // should be null
+            var result = _service.RepayLoan("aaa", 5);
             Assert.Null(result);
         }
 
